@@ -6,6 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddScoped<IHolidayBookingService, HolidayBookingService>();
+builder.Services.AddHttpClient<IHolidayBookingService, HolidayBookingService>();
 
 var app = builder.Build();
 

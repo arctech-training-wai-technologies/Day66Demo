@@ -2,8 +2,7 @@
 
 public interface IHolidayBookingService
 {
-    FlightSearchResultViewModel GetAll(
-        string locationFrom, 
+    Task<FlightSearchResultViewModel> GetAll(string locationFrom,
         string locationTo,
         DateTime departureDate,
         DateTime? returnDate = null);

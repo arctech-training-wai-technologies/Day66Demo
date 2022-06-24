@@ -58,17 +58,17 @@ namespace Day66.Controllers
         [HttpGet("{locationFrom}/{locationTo}/{date}")]
         public async Task<ActionResult<List<FlightDto>>> GetFlight(string locationFrom, string locationTo, DateTime date)
         {
-            if (!(await _context.Flights.AnyAsync(f => f.Name == locationFrom) &&
-               await _context.Flights.AnyAsync(f => f.Name == locationTo)))
+            if (!(await _context.Locations.AnyAsync(f => f.AirportName == locationFrom) &&
+               await _context.Locations.AnyAsync(f => f.AirportName == locationTo)))
                 return NotFound();
 
             var locationFromRefId = await _context.Locations
-                .Where(l => l.Name == locationFrom)
+                .Where(l => l.AirportName == locationFrom)
                 .Select(l => l.Id)
                 .FirstOrDefaultAsync();
 
             var locationToRefId = await _context.Locations
-                .Where(l => l.Name == locationFrom)
+                .Where(l => l.AirportName == locationTo)
                 .Select(l => l.Id)
                 .FirstOrDefaultAsync();
 

@@ -19,17 +19,18 @@
     </style>
 }
 
-    <h2>Book Flights, Hotels and Holiday Packages</h2>
-    <hr />
-
-    <div class="row">
-        <div class="col-md-5">
+<h2>Book Flights, Hotels and Holiday Packages</h2>
+<hr />
+<div class="row">
+    <div class="col-md-5">
             <div>
                 <span>Depart</span>
                 <span>Arrive</span>
                 <span>Duration</span>
                 <span>Price Per Adult</span>
             </div>
+            @if (Model.FlightsDepartures != null)
+        {
             @foreach (var flightDeparture in Model.FlightsDepartures)
             {
                 <div class="card mb-3 shadow">
@@ -44,16 +45,26 @@
                     </div>
                 </div>
             }
-        </div>
-    @if (Model.FlightsReturns != null)
-    {
-        <div class="col-md-5">
-            <div>
-                <span>Depart</span>
-                <span>Arrive</span>
-                <span>Duration</span>
-                <span>Price Per Adult</span>
+        }
+        else
+        {
+            <div class="card mb-3 shadow">
+                <div class="card-body">
+                    No Departure flights found for this search criteria
+                </div>
             </div>
+        }
+    </div>
+
+    <div class="col-md-5">
+        <div>
+            <span>Depart</span>
+            <span>Arrive</span>
+            <span>Duration</span>
+            <span>Price Per Adult</span>
+        </div>
+        @if (Model.FlightsReturns != null)
+        {
             @foreach (var flightReturn in Model.FlightsReturns)
             {
                 <div class="card mb-3 shadow">
@@ -68,6 +79,14 @@
                     </div>
                 </div>
             }
-        </div>
-    }
+        }
+        else
+        {
+            <div class="card mb-3 shadow">
+                <div class="card-body">
+                    No Departure flights found for this search criteria
+                </div>
+            </div>
+        }
+    </div>
 </div>
