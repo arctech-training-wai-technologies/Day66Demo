@@ -23,12 +23,12 @@ namespace Day66WebSite.Controllers
         }
 
         [HttpPost]
-        public ActionResult SearchResults(string locationFrom, string locationTo, DateTime departureDate, DateTime? returnDate)
+        public async Task<ActionResult> SearchResults(string locationFrom, string locationTo, DateTime departureDate, DateTime? returnDate)
         {
             // get flight details from AirIndia
             // get flight details from SpiceJet
             // get flight details from FireAirlines
-            var flightSearchResultViewModel = _holidayBookingService.GetAll(locationFrom, locationTo, departureDate, returnDate);
+            var flightSearchResultViewModel = await _holidayBookingService.GetAll(locationFrom, locationTo, departureDate, returnDate);
 
             return View(flightSearchResultViewModel);
         }

@@ -29,7 +29,7 @@ public class Flight
 
     public DateTime DepartureDateTime { get; set; }
 
-    public DateTime ReturnDateTime { get; set; }
+    public DateTime ArrivalDateTime { get; set; }
 
     public int PricePerAdult { get; set; }
 }

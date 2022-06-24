@@ -5,7 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddScoped<IHolidayBookingService, HolidayBookingService>();
+//builder.Services.AddScoped<IHolidayBookingService, HolidayBookingService>();
 builder.Services.AddHttpClient<IHolidayBookingService, HolidayBookingService>();
 
 var app = builder.Build();

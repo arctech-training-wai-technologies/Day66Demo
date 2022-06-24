@@ -4,9 +4,9 @@
     {
         public string Name { get; set; } = null!;
 
-        public DateTime DepartureTime { get; set; }
+        public DateTime DepartureDateTime { get; set; }
 
-        public DateTime ReturnTime { get; set; }
+        public DateTime ArrivalDateTime { get; set; }
 
         public int PricePerAdult { get; set; }
     }

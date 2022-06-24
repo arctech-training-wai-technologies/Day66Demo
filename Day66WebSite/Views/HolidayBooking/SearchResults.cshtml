@@ -36,12 +36,12 @@
                 <div class="card mb-3 shadow">
                     <div class="card-body">
                         <img src="~/images/airline-logo.jpg " alt="Airline Logo" />
-                        <span>@flightDeparture.AirlineName</span>
-                        <span class="flight-time">@flightDeparture.FlightDepartureTime.ToString("hh:mm")</span>
+                        <span>@flightDeparture.Name</span>
+                        <span class="flight-time">@flightDeparture.DepartureDateTime.ToString("hh:mm")</span>
                         <span class="blockquote-footer"></span>
-                        <span class="flight-time">@flightDeparture.FlightArrivalTime.ToString("hh:mm")</span>
+                        <span class="flight-time">@flightDeparture.ArrivalDateTime.ToString("hh:mm")</span>
                         <span class="duration">@flightDeparture.FormattedDuration</span>
-                        <span class="price">@flightDeparture.Cost.ToString("C0")</span>
+                        <span class="price">@flightDeparture.PricePerAdult.ToString("C0")</span>
                     </div>
                 </div>
             }
@@ -70,12 +70,12 @@
                 <div class="card mb-3 shadow">
                     <div class="card-body">
                         <img src="~/images/airline-logo.jpg " alt="Airline Logo" />
-                        <span>@flightReturn.AirlineName</span>
-                        <span class="flight-time">@flightReturn.FlightDepartureTime.ToString("hh:mm")</span>
+                        <span>@flightReturn.Name</span>
+                        <span class="flight-time">@flightReturn.DepartureDateTime.ToString("hh:mm")</span>
                         <span class="blockquote-footer"></span>
-                        <span class="flight-time">@flightReturn.FlightArrivalTime.ToString("hh:mm")</span>
+                        <span class="flight-time">@flightReturn.ArrivalDateTime.ToString("hh:mm")</span>
                         <span class="duration">@flightReturn.FormattedDuration</span>
-                        <span class="price">@flightReturn.Cost.ToString("C0")</span>
+                        <span class="price">@flightReturn.PricePerAdult.ToString("C0")</span>
                     </div>
                 </div>
             }
