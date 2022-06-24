@@ -1,20 +1,36 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Day66WebSite.Models;
+using Day66WebSite.Models.Services;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Day66WebSite.Controllers
 {
-    public class HolidayBooking : Controller
+    public class HolidayBookingController : Controller
     {
+        private readonly IHolidayBookingService _holidayBookingService;
+
+        public HolidayBookingController(IHolidayBookingService holidayBookingService)
+        {
+            _holidayBookingService = holidayBookingService;
+        }
+
+        public FlightSearchResultViewModel FlightSearchResultViewModel { get; set; } = null!;
+
         // GET: HolidayBooking
-        public ActionResult Index()
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult SearchResults(string locationFrom, string locationTo, DateTime departureDate, DateTime? returnDate)
         {
             // get flight details from AirIndia
             // get flight details from SpiceJet
             // get flight details from FireAirlines
+            var flightSearchResultViewModel = _holidayBookingService.GetAll(locationFrom, locationTo, departureDate, returnDate);
 
-
-
-            return View();
+            return View(flightSearchResultViewModel);
         }
 
         // GET: HolidayBooking/Details/5

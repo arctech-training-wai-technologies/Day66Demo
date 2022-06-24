@@ -12,6 +12,11 @@ public class Flight
     [StringLength(100)]
     public string Name { get; set; } = null!;
 
+    public int? PlaneModelRefId { get; set; }
+
+    [ForeignKey(nameof(PlaneModelRefId))]
+    public PlaneModel PlaneModel { get; set; } = null!;
+
     public int? FromLocationRefId { get; set; }
 
     [ForeignKey(nameof(FromLocationRefId))]
@@ -22,7 +27,9 @@ public class Flight
     [ForeignKey(nameof(ToLocationRefId))]
     public Location ToLocation { get; set; } = null!;
 
-    public DateTime DepartureTime { get; set; }
+    public DateTime DepartureDateTime { get; set; }
 
-    public DateTime ArrivalTime { get; set; }
+    public DateTime ReturnDateTime { get; set; }
+
+    public int PricePerAdult { get; set; }
 }

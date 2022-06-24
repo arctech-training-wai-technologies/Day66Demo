@@ -1,7 +1,11 @@
+using Day66WebSite.Models.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddScoped<IHolidayBookingService, HolidayBookingService>();
 
 var app = builder.Build();
 

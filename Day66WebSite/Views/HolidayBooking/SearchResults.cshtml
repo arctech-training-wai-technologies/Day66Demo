@@ -1,0 +1,73 @@
+﻿@model FlightSearchResultViewModel
+
+@section Styles {
+    <style type="text/css">
+
+        .duration {
+            border-left: 1px solid gray;
+            font-size: x-small;
+            font-weight: bold;
+        }
+
+        .flight-time {
+            font-weight: bold;
+        }
+
+        .price {
+            font-weight: bold;
+        }
+    </style>
+}
+
+    <h2>Book Flights, Hotels and Holiday Packages</h2>
+    <hr />
+
+    <div class="row">
+        <div class="col-md-5">
+            <div>
+                <span>Depart</span>
+                <span>Arrive</span>
+                <span>Duration</span>
+                <span>Price Per Adult</span>
+            </div>
+            @foreach (var flightDeparture in Model.FlightsDepartures)
+            {
+                <div class="card mb-3 shadow">
+                    <div class="card-body">
+                        <img src="~/images/airline-logo.jpg " alt="Airline Logo" />
+                        <span>@flightDeparture.AirlineName</span>
+                        <span class="flight-time">@flightDeparture.FlightDepartureTime.ToString("hh:mm")</span>
+                        <span class="blockquote-footer"></span>
+                        <span class="flight-time">@flightDeparture.FlightArrivalTime.ToString("hh:mm")</span>
+                        <span class="duration">@flightDeparture.FormattedDuration</span>
+                        <span class="price">@flightDeparture.Cost.ToString("C0")</span>
+                    </div>
+                </div>
+            }
+        </div>
+    @if (Model.FlightsReturns != null)
+    {
+        <div class="col-md-5">
+            <div>
+                <span>Depart</span>
+                <span>Arrive</span>
+                <span>Duration</span>
+                <span>Price Per Adult</span>
+            </div>
+            @foreach (var flightReturn in Model.FlightsReturns)
+            {
+                <div class="card mb-3 shadow">
+                    <div class="card-body">
+                        <img src="~/images/airline-logo.jpg " alt="Airline Logo" />
+                        <span>@flightReturn.AirlineName</span>
+                        <span class="flight-time">@flightReturn.FlightDepartureTime.ToString("hh:mm")</span>
+                        <span class="blockquote-footer"></span>
+                        <span class="flight-time">@flightReturn.FlightArrivalTime.ToString("hh:mm")</span>
+                        <span class="duration">@flightReturn.FormattedDuration</span>
+                        <span class="price">@flightReturn.Cost.ToString("C0")</span>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>
