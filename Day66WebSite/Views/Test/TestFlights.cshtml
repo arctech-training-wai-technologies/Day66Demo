@@ -1,0 +1,23 @@
+﻿@model List<Day66WebSite.Models.Dtos.FlightDto>
+
+<h1>API Test - All Flights Listing</h1>
+
+<table class="table table-bordered">
+    <tr>
+        <td>name</td>
+        <td>fromLocationRefId</td>
+        <td>toLocationRefId</td>
+        <td>departureDateTime</td>
+        <td>arrivalDateTime</td>
+    </tr>
+    @foreach (var flightDto in Model)
+    {
+        <tr>
+            <td>@flightDto.name</td>
+            <td>@flightDto.fromLocationRefId</td>
+            <td>@flightDto.toLocationRefId</td>
+            <td>@flightDto.departureDateTime</td>
+            <td>@flightDto.arrivalDateTime</td>
+        </tr>
+    }
+</table>
