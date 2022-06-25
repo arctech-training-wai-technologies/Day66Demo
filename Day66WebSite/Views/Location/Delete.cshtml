@@ -1,0 +1,39 @@
+﻿@model Day66WebSite.Models.Dtos.LocationDto?
+
+@if (ViewData.ContainsKey("ErrorMessage"))
+{
+    <div class="text-danger">@ViewData["ErrorMessage"]</div>
+}
+else if (ViewData.ContainsKey("SuccessMessage"))
+{
+    <div class="text-success">@ViewData["SuccessMessage"]</div>
+}
+
+@if (Model != null)
+{
+    <table class="table table-bordered">
+        <tr>
+            <td>Id</td>
+            <td>@Model.id</td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>@Model.name</td>
+        </tr>
+        <tr>
+            <td>Airport Name</td>
+            <td>@Model.airportName</td>
+        </tr>
+    </table>
+
+    <div>
+        Are you sure you want to delete?
+
+        <form method="post" asp-action="DeleteLocation">
+            <input type="hidden" asp-for="@Model.id" />
+            <button type="submit" class="btn btn-danger">Yes</button>
+            &nbsp;&nbsp;
+            <a class="btn btn-warning" asp-action="Search">No</a>
+        </form>
+    </div>
+}

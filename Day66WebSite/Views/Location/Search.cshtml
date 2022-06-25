@@ -1,0 +1,32 @@
+﻿@model Day66WebSite.Models.Dtos.LocationDto?
+
+<h1>Location Search</h1>
+
+<form>
+    <label>Enter Location Id to Search</label>
+    <input name="id" />
+
+    <button type="submit">Search</button>
+</form>
+
+@if (ViewData.ContainsKey("ErrorMessage"))
+{
+    <div class="text-danger">@ViewData["ErrorMessage"]</div>
+}
+else if (Model != null)
+{
+    <table class="table table-bordered">
+        <tr>
+            <td>Id</td>
+            <td>@Model.id</td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>@Model.name</td>
+        </tr>
+        <tr>
+            <td>Airport Name</td>
+            <td>@Model.airportName</td>
+        </tr>
+    </table>
+}

@@ -8,6 +8,7 @@ builder.Services.AddControllersWithViews();
 //builder.Services.AddScoped<IHolidayBookingService, HolidayBookingService>();
 builder.Services.AddHttpClient<IHolidayBookingService, HolidayBookingService>();
 builder.Services.AddHttpClient<ITestService, TestService>(client => client.BaseAddress = new Uri("https://localhost:7081/api"));
+builder.Services.AddHttpClient<ILocationService, LocationService>();
 
 var app = builder.Build();
 

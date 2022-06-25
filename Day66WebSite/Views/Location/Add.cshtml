@@ -1,0 +1,30 @@
+﻿@model Day66WebSite.Models.Dtos.LocationDto
+
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-floating">
+                <input asp-for="name" class="form-control" />
+                <label asp-for="name" class="form-label"></label>
+            </div>
+
+            <div class="form-floating">
+                <input asp-for="airportName" class="form-control" />
+                <label asp-for="airportName" class="form-label"></label>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary">Create Location</button>
+            </div>
+        </form>
+        
+        @if (ViewData.ContainsKey("SuccessMessage"))
+        {
+            <div class="text-success">@ViewData["SuccessMessage"]</div>
+        }
+        else if (ViewData.ContainsKey("ErrorMessage"))
+        {
+            <div class="text-danger">@ViewData["ErrorMessage"]</div>
+        }
+    </div>
+</div>
